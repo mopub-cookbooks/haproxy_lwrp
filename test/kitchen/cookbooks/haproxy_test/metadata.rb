@@ -1,0 +1,10 @@
+name "haproxy-test"
+maintainer "Scott M. Likens"
+maintainer_email "scott@mopub.com"
+license "All Rights Reserved"
+description "haproxy test"
+version "0.0.1"
+supports 'ubuntu'
+depends "runit"
+depends "logrotate"
+depends "build-essential"
