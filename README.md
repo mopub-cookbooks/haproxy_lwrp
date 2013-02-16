@@ -41,7 +41,7 @@ Usage
 See tests or `recipe/lwrp_example.rb` for working examples.
 
 	frontend_temp=Array.new  
-frontend_temp << {"name" => "http-in *:80", "acl" => "acl bob-acl path_beg /status\nacl bob-acl2 path_beg /status2 if bob-acl\n", "default_backend" => "www" }  
+	frontend_temp << {"name" => "http-in *:80", "acl" => "acl bob-acl path_beg /status\nacl bob-acl2 path_beg /status2 if bob-acl\n", "default_backend" => "www" }  
 	frontend_temp << {"name" => "https-in *:443", "default_backend" => "www" }  
 	backend_temp=Array.new  
 	backend_temp << { "name" => "www", "mode" => "http", "balance" => "leastconn" , "option" => "option httpclose\noption redispatch\noption httpchk GET / HTTP/1.1\\r\\nHost: wwww\noption redispatch\n", "other" => "check", "server" => ["172.29.11.3","172.29.11.4"], "start_port" => 80, "instance_count" => 1}  
