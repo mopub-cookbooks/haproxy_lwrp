@@ -1,26 +1,12 @@
 Description
 ===========
 
-Installs haproxy and prepares the configuration location.
+Implementation free resource and provider to configure haproxy instances.  Example below is a very rough example, you can load settings from roles, environments, data bags and or recipes themselves (like below).  
+
+Sometimes design changes, we don't want to rewrite a whole new recipe and template for each change that is not productive.
 
 Changes
 =======
-
-## v1.0.3:
-
-* [COOK-620] haproxy::app_lb's template should use the member cloud private IP by default
-
-## v1.0.2:
-
-* fix regression introduced in v1.0.1
-
-## v1.0.1:
-
-* account for the case where load balancer is in the pool
-
-## v1.0.0:
-
-* Use `node.chef_environment` instead of `node['app_environment']`
 
 ## v2.0.0:
 
@@ -63,10 +49,8 @@ License and Author
 ==================
 
 Author:: Scott M. Likens (<scott@likens.us>)
-Previous Author:: Joshua Timberman (<joshua@opscode.com>)
 
 Copyright:: 2013, Scott M. Likens.
-Copyright:: 2009-2011, Opscode, Inc
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
