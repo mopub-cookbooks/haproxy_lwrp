@@ -1,4 +1,4 @@
-name "haproxy-lwrp"
+name "haproxy_lwrp"
 maintainer        "Scott M. Likens"
 maintainer_email  "scott@likens.us"
 license           "Apache 2.0"
