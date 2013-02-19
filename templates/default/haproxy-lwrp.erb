@@ -46,6 +46,13 @@ listen <%= l['name'] %>
 <% if l['mode'] %>
 mode <%= l['mode'] %>
 <% end %>
+<% if l['server'] %>
+<% l['server'].each do |c| %>
+<% (l["start_port"]).upto(l["start_port"] + (l["instance_count"] -1)) do |p| %>
+server <%= c %>_<%= p %> <%= c %>:<%= p %> <% if l["maxconn"] %>maxconn <%= l["maxconn"] %><% end %> <% if l["other"] %><%= l["other"] %><% end %>
+<% end %>
+<% end %>
+<% end %>
 <% if l['stats'] %>
 <%= l['stats'] %>
 <% end %>
