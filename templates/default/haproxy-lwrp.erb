@@ -10,6 +10,7 @@ defaults
 <%= l %> <%= m %>
 <% end %>
 
+<% if @frontend %>
 # options for frontend
 <% @frontend.each do |f| %>
 frontend <%= f['name'] %>
@@ -20,7 +21,9 @@ default_backend <%= f['default_backend'] %>
 <%= f['acl'] %>
 <% end %>
 <% end %>
+<% end %>
 
+<% if @backend %>
 <% @backend.each do |b| %>
 backend <%= b['name'] %>
 mode <%= b['mode'] %>
@@ -30,7 +33,8 @@ balance <%= b['balance'] %>
 <% (b["start_port"]).upto(b["start_port"] + (b["instance_count"] -1)) do |p| %>
 server <%= c %>_<%= p %> <%= c %>:<%= p %> <% if b["maxconn"] %>maxconn <%= b["maxconn"] %><% end %> <%= b["other"] %>
 <% end %>
- <% end %>
+<% end %>
+<% end %>
 <% end %>
 
 <% if @listen %>
