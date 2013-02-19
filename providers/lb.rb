@@ -11,6 +11,7 @@ action :create do
     mode 0755
     user new_resource.user
     source new_resource.source
+    cookbook "haproxy_lwrp"
     variables({
                 :global => new_resource.global,
                 :defaults => new_resource.defaults,
