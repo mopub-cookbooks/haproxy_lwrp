@@ -45,6 +45,20 @@ See tests or `recipe/lwrp_example.rb` for working examples.
       action :create  
     end  
 
+Another example 
+
+```ruby
+listen_temp=Array.new  
+listen_temp << { "name" => "carbon-relay-plain 0.0.0.0:2003", "mode" => "tcp", "server" => ["127.0.0.1"], "start_port" => 2031, "instance_count" => 3}
+listen_temp << { "name" => "carbon-relay-pickle 0.0.0.0:2004", "mode" => "tcp", "server" => ["127.0.0.1"], "start_port" => 2041, "instance_count" => 3}
+haproxy_lwrp_lb "haproxy" do
+  global({"maxconn" => 65535, "ulimit-n" => 160000, "user" => "haproxy", "group" => "haproxy", "stats" => "socket /var/run/haproxy.sock mode 0600 level admin user root" })
+  defaults({ "log" => "global", "mode" => "http", "option" => "dontlognull", "balance" => "leastconn", "srvtimeout" => 60000, "contimeout" => 5000, "retries" => 3,"option" => "redispatch\noption contstats"})
+  listen(listen_temp)
+    action :create
+end
+```    
+
 License and Author
 ==================
 
