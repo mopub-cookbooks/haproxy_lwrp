@@ -1,6 +1,7 @@
 action :create do
   runit_service new_resource.name do
     run_template_name "haproxy2"
+    cookbook "haproxy_lwrp"
     default_logger true
     options({
               :filename => "/etc/haproxy/#{new_resource.name}.cfg",
