@@ -6,6 +6,6 @@ description       "Installs and configures haproxy"
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version "2.0.1"
 supports 'ubuntu', "= 12.04"
-recipe "haproxy", "Installs and configures haproxy"
+recipe "lwrp_test", "Example"
 
 depends "runit"

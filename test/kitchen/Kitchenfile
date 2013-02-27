@@ -5,6 +5,6 @@ platform :ubuntu do
   end
 end
 cookbook "haproxy" do
-  configuration 'default'
+  configuration 'lwrp_test'
   lint(:ignore => ["FC019","FC003"])
 end

@@ -8,3 +8,4 @@ supports 'ubuntu'
 depends "runit"
 depends "logrotate"
 depends "build-essential"
+depends "haproxy_lwrp"

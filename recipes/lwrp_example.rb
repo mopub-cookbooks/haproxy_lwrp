@@ -8,9 +8,9 @@ backend_temp << { "name" => "unicorn", "mode" => "tcp", "balance" => "leastconn"
 backend_temp << { "name" => "manythins", "mode" => "tcp", "balance" => "leastconn" , "option" => "option httpclose\noption redispatch\noption httpchk GET / HTTP/1.1\\r\\nHost: wwww\noption redispatch\n", "other" => "check", "server" => ["127.0.0.1"], "maxconn" => 20, "start_port" => 3000, "instance_count" => 4}
 listen_temp=Array.new
 listen_temp <<   {"name" => "fart 0.0.0.0:22002", "mode" => "http", "stats" => "stats uri /"}
-include_recipe "haproxy::install"
+package "haproxy"
 include_recipe "runit"
-haproxy_lb "adserver" do
+haproxy_lwrp_lb "adserver" do
   frontend(frontend_temp)
   backend(backend_temp)
   listen(listen_temp)
