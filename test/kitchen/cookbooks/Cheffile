@@ -1,5 +1,0 @@
-site "http://community.opscode.com/api/v1"
-
-cookbook 'runit', '1.0.4'
-cookbook 'build-essential'
-cookbook 'logrotate'
